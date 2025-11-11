@@ -7,7 +7,11 @@ const getTodos = async(req, res) => {
 }   
 
 const getTodoById = async(req, res) => {
+    try{
 
+    }catch(error){
+
+    }
 }
 
 const addTodo = async(req, res) => {
@@ -23,7 +27,10 @@ const addTodo = async(req, res) => {
         }
 
     }catch(error){
-
+        res.status(500).json({
+            success : false,
+            message : error
+        });
     }
 }
 
