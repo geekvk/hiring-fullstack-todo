@@ -1,12 +1,15 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const connectDB = require('./database/db.js');
 const todoRouter = require('./routes/todo-routes.js')
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 connectDB();
+app.use(cors())
 app.use(express.json());
+
 app.use("/api/v1/todo-app", todoRouter);
 
 app.listen(PORT, () => {
